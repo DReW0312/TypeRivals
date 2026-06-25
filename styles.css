@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
+:root{
+    --bgColor: #333;
+    --textPrimary: #fff;
+    --textSecondary: #666;
+    --primaryColor: #fd4;
+}
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color:var(--bgColor);
+    color: var(--textPrimary);
+    font-size: 1.4rem;
+}
+main{
+    width: 600px;
+    margin: 50px auto;
+}
+h1{
+    color: var(--primaryColor);
+}
+h1 img {
+    width: 50px;                 
+    height: auto;               
+    vertical-align: middle;      
+    filter: invert(1);           
+    margin-right: 10px;          
+}
+#header{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px 6px 30px;
+}
+#buttons{
+    text-align: right;
+}
+#info{
+    color: var(--primaryColor);
+}
+button{
+    background: rgba(255,255,255,.2);
+    border:0;
+    color: rgba(255,255,255,.5);
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+div#game{
+    line-height:35px;
+    height:105px;
+    overflow: hidden;
+    position: relative;
+}
+div#game:focus{
+    outline:0;
+}
+#words{
+    filter: blur(5px);
+    color: var(--textSecondary);
+}
+#game:focus #words{
+    filter: blur(0);
+}
+#focus-error {
+    position: absolute;
+    inset: 0;
+    text-align: center;
+    padding-top: 35px;
+}
+#game:focus #focus-error{
+    display:none;
+}
+div.word{
+    display: inline-block;
+    font-family: 'Roboto Mono', monospace;
+    margin: 0 5px;
+}
+.letter.correct{
+    color: #fff;
+}
+.letter.incorrect{
+    color: #f55;
+}
+@keyframes blink{
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+#cursor{
+    display:none;
+    width: 2px;
+    height: 1.6rem;
+    background: var(--primaryColor);
+    position: fixed;
+    top: 198px;
+    left: 18px;
+    animation: blink .3s infinite;
+}
+#game:focus #cursor{
+    display: block;
+}
+#game.over #words{
+    opacity: .5;
+    filter: blur(0px);
+}
+#game.over:focus #cursor{
+    display:none;
+}
+#game.over #focus-error {
+    display: none;
+}
+button.time-btn.active {
+    color: var(--primaryColor);
+    background: rgba(255,255,255,.3);
+    font-weight: bold;
+}
+
+/* Navigation */
+#navbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+/* Modals */
+.modal {
+    position: fixed; inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 1000;
+}
+.modal-content {
+    background: var(--bgColor);
+    padding: 30px; border-radius: 10px;
+    width: 400px; text-align: center;
+    border: 1px solid var(--primaryColor);
+}
+.modal-content input {
+    width: 90%; padding: 10px; margin: 10px 0;
+    background: #222; color: #fff;
+    border: 1px solid #555; border-radius: 5px;
+}
+.modal-content button { margin-top: 10px; width: 100%; }
+.close-btn { background: #555; }
+#toggleAuthMode { color: var(--primaryColor); cursor: pointer; font-size: 1rem; margin-top:15px; }
+
+/* Profile Elements */
+#profilePicDisplay {
+    width: 100px; height: 100px; border-radius: 50%;
+    object-fit: cover; border: 2px solid var(--primaryColor);
+    margin-bottom: 10px;
+}
+.upload-label {
+    display: block; color: var(--primaryColor);
+    cursor: pointer; font-size: 1rem; margin-bottom: 20px;
+}
+#historyContainer {
+    max-height: 150px; overflow-y: auto;
+    text-align: left; font-size: 1rem;
+    background: #222; padding: 10px; border-radius: 5px;
+}
+#historyList { list-style: none; padding: 0; margin: 0; }
+#historyList li { border-bottom: 1px solid #444; padding: 5px 0; }

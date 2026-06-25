@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    <title>TypeRivals</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main>
+        <nav id="navbar">
+        <div id="user-controls">
+            <button id="navLoginBtn">Login / Sign Up</button>
+            <button id="navProfileBtn" style="display:none;">My Profile</button>
+            <button id="navLogoutBtn" style="display:none;">Logout</button>
+        </div>
+        </nav>
+        <h1>
+       <img src="logo.png" alt="TypeRivals Logo">
+       TypeRivals
+   </h1>
+        <div id="header">
+            <div id="info"></div>
+            <div id="buttons">
+                <button class="time-btn" data-time="30">30s</button>
+                <button class="time-btn active" data-time="60">60s</button>
+                <button class="time-btn" data-time="120">120s</button>
+                <button id="newGameBtn">New game</button>
+            </div>
+        </div>
+        <div id="game" tabindex="0">
+            <div id="words"></div>
+            <div id="cursor"></div>
+            <div id="focus-error">Click here to focus</div>
+        </div>
+    </main>
+    <div id="authModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <h2 id="authTitle">Login</h2>
+            <input type="email" id="emailInput" placeholder="Email">
+            <input type="password" id="passwordInput" placeholder="Password">
+            <input type="text" id="usernameInput" placeholder="Username (Signup only)" style="display:none;">
+            <button id="authSubmitBtn">Submit</button>
+            <p id="toggleAuthMode">Need an account? Sign up</p>
+            <button class="close-btn" id="closeAuthBtn">Close</button>
+        </div>
+    </div>
+
+    <div id="profileModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <h2>User Profile</h2>
+            <div id="profileInfo">
+                <img id="profilePicDisplay" src="https://via.placeholder.com/100" alt="Profile Pic">
+                <h3 id="profileUsernameDisplay">Loading...</h3>
+                
+                <label for="picUpload" class="upload-label">Upload New Picture</label>
+                <input type="file" id="picUpload" accept="image/*" style="display:none;">
+            </div>
+            
+            <h3>Past Contests</h3>
+            <div id="historyContainer">
+                <ul id="historyList"></ul>
+            </div>
+            <button class="close-btn" id="closeProfileBtn">Close</button>
+        </div>
+    </div>
+    <script src="typing.js"></script>
+    <script type="module" src="firebase-app.js"></script></body>
+</html>
